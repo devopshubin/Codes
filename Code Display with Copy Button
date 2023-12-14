@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <style>
+    .code-section {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      background-color: #f1f1f1;
+      position: relative;
+    }
+
+    .code-line {
+      font-family: "Courier New", monospace;
+      margin: 5px 0;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="code-section" id="codeSection">
+    <div class="code-line">// Your code goes here</div>
+    <div class="code-line">function greeting() {</div>
+    <div class="code-line">  console.log("Hello, world!");</div>
+    <div class="code-line">}</div>
+    <button class="copy-button" onclick="copyCode()">Copy</button>
+  </div>
+
+  <script>
+    function copyCode() {
+      const codeSection = document.getElementById('codeSection');
+      const codeLines = codeSection.querySelectorAll('.code-line');
+      const codeText = Array.from(codeLines).map(line => line.innerText).join('\n');
+
+      // Create a textarea element to hold the code text
+      const textarea = document.createElement('textarea');
+      textarea.value = codeText;
+      document.body.appendChild(textarea);
+
+      // Select and copy the text from the textarea
+      textarea.select();
+      document.execCommand('copy');
+
+      // Remove the temporary textarea
+      document.body.removeChild(textarea);
+
+      // Provide some visual feedback (optional)
+      alert('Code copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

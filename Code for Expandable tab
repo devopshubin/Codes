@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        /* Style for the tab container */
+        .tab-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            width: 500px;
+        }
+
+        /* Style for the tab */
+        .tab {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Style for the tab content */
+        .tab-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Display content when tab is active */
+        .active-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Expandable Tab -->
+<div class="tab-container">
+    <!-- Tab 1 -->
+    <div class="tab" onclick="toggleTab('tab1')">
+        <strong>Cost Savings</strong>
+        <span class="plus-icon">+</span>
+    </div>
+
+    <div class="tab-content" id="tab1Content">
+        <p>Cloud computing eliminates the need for upfront capital expenses on hardware and infrastructure. Businesses can pay for cloud services on a pay-as-you-go basis, reducing operational costs and allowing for better budget management.</p>
+    </div>
+
+    <!-- Tab 2 -->
+    <div class="tab" onclick="toggleTab('tab2')">
+        <strong>Scalability</strong>
+        <span class="plus-icon">+</span>
+    </div>
+
+    <div class="tab-content" id="tab2Content">
+        <p>Cloud services can easily scale up or down based on demand. This flexibility enables businesses to handle varying workloads and accommodate growth without investing in additional hardware.</p>
+    </div>
+
+    <!-- Add more tabs as needed -->
+</div>
+
+<script>
+    function toggleTab(tabId) {
+        var tabContent = document.getElementById(tabId + 'Content');
+        if (tabContent.style.display === 'block') {
+            tabContent.style.display = 'none';
+        } else {
+            tabContent.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

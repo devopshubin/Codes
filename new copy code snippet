@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    pre {
+      white-space: pre-wrap;
+      background-color: #f4f4f4;
+      padding: 1em;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <title>Code Example</title>
+</head>
+<body>
+
+  <div style="position: relative;">
+    <pre id="codeBlock">
+      <!-- Your content goes here -->
+    </pre>
+
+    <button onclick="promptToCopy()">Copy</button>
+  </div>
+
+  <script>
+    function promptToCopy() {
+      const codeElement = document.getElementById('codeBlock');
+      const textToCopy = codeElement.textContent;
+
+      const textArea = document.createElement('textarea');
+      textArea.value = textToCopy;
+      textArea.style.position = 'fixed';  // Ensure it's not visible
+      document.body.appendChild(textArea);
+
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+
+      alert('Code copied to clipboard!');
+    }
+  </script>
+
+</body>
+</html>
